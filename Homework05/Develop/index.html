@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <title>Work Day Scheduler</title>
 </head>
@@ -16,30 +17,157 @@
 <body>
   <!--Added a div container to hold all of my clock features in a more centered config; not sure if the in-line styling is the best choice as opposed to having a separate CSS file-->
   <div class="container">
-  <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler<i class="far fa-calendar-alt" style="margin-left: 25px;" ;></i></h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <div id="clock" style="width: 300px; height: 100px; background-color: black; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: greenyellow; font-size: 3em; margin-left: 30%;">
-      The Time Is...</div>
-
-  </header>
-</div>
-  <div class="container">
-    <!-- Timeblocks go here -->
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler<i class="far fa-calendar-alt" style="margin-left: 25px;" ;></i></h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <div id="clock"
+        style="width: 400px; height: 100px; background-color: black; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: greenyellow; font-size: 3em; margin-left: 30%;">
+        The Time Is...</div>
+    </header>
   </div>
+
+<!--All buttons begin on line 29 for collapsing for ease of viewing-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">9AM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(170, 218, 219);">
+        <input type="text" placeholder="Your 9AM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+
+    <section>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">10AM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(122, 200, 202);">
+        <input type="text" placeholder="Your 10AM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit"  class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">11AM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(90, 185, 189);">
+        <input type="text" placeholder="Your 11AM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit"  class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">12PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(58, 173, 177);">
+        <input type="text" placeholder="Your 12PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">1PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(22, 163, 168);">
+        <input type="text" placeholder="Your 1PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">2PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(56, 110, 112);">
+        <input type="text" placeholder="Your 2PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">3PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(31, 103, 105);">
+        <input type="text" placeholder="Your 3PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">4PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(16, 94, 97);">
+        <input type="text" placeholder="Your 4PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="border border-warning">5PM</span></h2>
+      </div>
+      <div class="input-group col-md-6 wrapper" style="background-color: rgb(5, 63, 65);">
+        <input type="text" placeholder="Your 5PM Event" class="form-control" id="savedEvent">
+        <span id="printedEvent"></span>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+      </div>
+  </section>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+// var enteredEvent = $("#savedEvent")
+
+$("#setEvent").on("click", function (event) {
+  event.preventDefault;
+  var userEvent = $("#savedEvent").val();
+  console.log(userEvent);
+})
+
+</script>
+
 
   <!--two new scripts to link to moment.js and then to place all of the clock functions inside of, respectively-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
   <script>
     var clock = document.getElementById('clock');
-    
+
     setInterval(() => {
       const now = moment();
-      const humanReadable = now.format('hh:mm:ssA');
+      const humanReadable = now.format('MMMM/DD/YYYY hh:mm:ssA');
       clock.textContent = humanReadable;
     }, 1000);
   </script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!--add your javascript file here-->
 </body>
