@@ -138,40 +138,6 @@
   </div>
 
 
-  <script type="text/javascript">
-    var clock = document.getElementById('clock');
-
-    setInterval(() => {
-      const now = moment();
-      const humanReadable = now.format('MMMM/DD/YYYY hh:mm:ssA');
-      clock.textContent = humanReadable;
-    }, 1000);
-
-    //don't touch that clock//
-    //-------------------------------//
-
-    var storedEvent = [];
-    var enteredEvent = $("#savedEvent");
-
-    $("#setEvent").on("click", function (event) {
-      var enteredEvent = $("#savedEvent").val();
-      event.preventDefault();
-
-      if (enteredEvent === "") {
-        return
-      };
-      storedEvent = enteredEvent.trim();
-      console.log(storedEvent);
-
-    })
-      
-      localStorage.setItem("enteredEvent", JSON.stringify(enteredEvent));
-      
-
-
-  </script>
-
-
   <!--two new scripts to link to moment.js and then to place all of the clock functions inside of, respectively-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
   <script>
@@ -180,7 +146,7 @@
   <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!--add your javascript file here-->
+  <script src="script.js"></script>
 </body>
 
 </html>
