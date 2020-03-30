@@ -25,22 +25,20 @@
     </header>
   </div>
 
-<!--All buttons begin on line 29 for collapsing for ease of viewing-->
+  <!--All buttons begin on line 29 for collapsing for ease of viewing-->
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <h2><span class="border border-warning">9AM</span></h2>
-      </div>
-      <div class="input-group col-md-6 wrapper" style="background-color: rgb(170, 218, 219);">
-        <input type="text" placeholder="Your 9AM Event" class="form-control" id="savedEvent">
-        <span id="printedEvent"></span>
-      </div>
-      <div class="col-md-3">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
-      </div>
+        <div class="col-md-3">
+          <h2><span class="border border-warning">9AM</span></h2>
+        </div>
+        <div class="input-group col-md-6 wrapper" style="background-color: rgb(170, 218, 219);">
+          <input type="text" placeholder="Your 9AM Event" class="form-control" id="savedEvent">
+          <span id="printedEvent"></span>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+        </div>
     </div>
-
-    <section>
     <div class="row">
       <div class="col-md-3">
         <h2><span class="border border-warning">10AM</span></h2>
@@ -50,7 +48,7 @@
         <span id="printedEvent"></span>
       </div>
       <div class="col-md-3">
-        <button type="submit"  class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
       </div>
     </div>
     <div class="row">
@@ -62,7 +60,7 @@
         <span id="printedEvent"></span>
       </div>
       <div class="col-md-3">
-        <button type="submit"  class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
       </div>
     </div>
     <div class="row">
@@ -136,28 +134,11 @@
       <div class="col-md-3">
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="setEvent">Set an Event</button>
       </div>
-  </section>
     </div>
   </div>
 
 
-<script type="text/javascript">
-
-// var enteredEvent = $("#savedEvent")
-
-$("#setEvent").on("click", function (event) {
-  event.preventDefault;
-  var userEvent = $("#savedEvent").val();
-  console.log(userEvent);
-  
-})
-
-</script>
-
-
-  <!--two new scripts to link to moment.js and then to place all of the clock functions inside of, respectively-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-  <script>
+  <script type="text/javascript">
     var clock = document.getElementById('clock');
 
     setInterval(() => {
@@ -165,6 +146,25 @@ $("#setEvent").on("click", function (event) {
       const humanReadable = now.format('MMMM/DD/YYYY hh:mm:ssA');
       clock.textContent = humanReadable;
     }, 1000);
+
+
+    var enteredEvent = $("#savedEvent")
+
+    $("#setEvent").on("click", function (event) {
+      var enteredEvent = $("#savedEvent").val();
+      event.preventDefault;
+      console.log(enteredEvent);
+      localStorage.setItem("enteredEvent", JSON.stringify(enteredEvent));
+    })
+
+
+  </script>
+
+
+  <!--two new scripts to link to moment.js and then to place all of the clock functions inside of, respectively-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script>
+
   </script>
   <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
   <script src="https://code.jquery.com/jquery.js"></script>
