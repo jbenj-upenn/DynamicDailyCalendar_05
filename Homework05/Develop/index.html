@@ -147,15 +147,26 @@
       clock.textContent = humanReadable;
     }, 1000);
 
+    //don't touch that clock//
+    //-------------------------------//
 
-    var enteredEvent = $("#savedEvent")
+    var storedEvent = [];
+    var enteredEvent = $("#savedEvent");
 
     $("#setEvent").on("click", function (event) {
       var enteredEvent = $("#savedEvent").val();
-      event.preventDefault;
-      console.log(enteredEvent);
-      localStorage.setItem("enteredEvent", JSON.stringify(enteredEvent));
+      event.preventDefault();
+
+      if (enteredEvent === "") {
+        return
+      };
+      storedEvent = enteredEvent.trim();
+      console.log(storedEvent);
+
     })
+      
+      localStorage.setItem("enteredEvent", JSON.stringify(enteredEvent));
+      
 
 
   </script>
